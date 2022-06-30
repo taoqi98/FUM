@@ -365,10 +365,9 @@ def create_model(title_word_embedding_matrix,content_word_embedding_matrix,entit
 
     return model,news_encoder,user_encoder
 
-def create_model_cg(mode,title_word_embedding_matrix,content_word_embedding_matrix,entity_dict,category_dict,subcategory_dict):
+def create_model_cg(title_word_embedding_matrix,content_word_embedding_matrix,entity_dict,category_dict,subcategory_dict):
         
     news_encoder = get_news_encoder(title_word_embedding_matrix,content_word_embedding_matrix,entity_dict,category_dict,subcategory_dict)
-    user_encoder1 = get_user_encoder()
 
     clicked_title_input = Input(shape=(MAX_CLICK,MAX_TITLE+2+MAX_CONTENT+MAX_ENTITY,), dtype='int32')    
     title_inputs = Input(shape=(1+npratio,MAX_TITLE+2+MAX_CONTENT+MAX_ENTITY,),dtype='int32') 
@@ -400,10 +399,9 @@ def create_model_cg(mode,title_word_embedding_matrix,content_word_embedding_matr
     return model,news_encoder,user_encoder
 
 
-def create_model_fg(mode,title_word_embedding_matrix,content_word_embedding_matrix,entity_dict,category_dict,subcategory_dict):
+def create_model_fg(title_word_embedding_matrix,content_word_embedding_matrix,entity_dict,category_dict,subcategory_dict):
         
     news_encoder = get_news_encoder(title_word_embedding_matrix,content_word_embedding_matrix,entity_dict,category_dict,subcategory_dict)
-    user_encoder1 = get_user_encoder()
 
     clicked_title_input = Input(shape=(MAX_CLICK,MAX_TITLE+2+MAX_CONTENT+MAX_ENTITY,), dtype='int32')    
     title_inputs = Input(shape=(1+npratio,MAX_TITLE+2+MAX_CONTENT+MAX_ENTITY,),dtype='int32') 
